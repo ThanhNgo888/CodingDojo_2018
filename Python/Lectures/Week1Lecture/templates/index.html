@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HomePage</title>
+    </head>
+    <body>
+        <h1>Homepage</h1>
+        {% if x == "Thanh" %}
+        <div class="">
+            <h1>{{x}} is my fovorite Dojo instructor</h1>
+        </div>
+        {% else %}
+        <div class="">
+            <h1>{{x}} is a Dojo instructor</h1>
+        </div>
+        {% endif %}
+        {% for student in all_students%}
+        <fieldset>
+            <legend>{{student.first_name}} {{student['last_name']}}</legend>
+            <a href="/hello/{{student.first_name}}">Say hello!</a>
+        </fieldset>
+        {% endfor %}
+
+        <h2>Login</h2>
+        <form action="/process" method="post">
+            <input type="hidden" name="action" value="login">
+            <input type="text" name="first_name">
+            <input type="submit" name="submit" value="Submit">
+        </form>
+        <h2>Register</h2>
+        <form action="/process" method="post">
+            <input type="hidden" name="action" value="register">
+            <input type="text" name="first_name">
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </body>
+</html>
