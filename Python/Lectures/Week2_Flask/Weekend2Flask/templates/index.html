@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Weekend Session Flask</title>
+    </head>
+    <body>
+        <form action="/users/create" method="post">
+            <input type="hidden" name="status" value="regular">
+            <input type="text" name="name" placeholder="name">
+            <input type="text" name="email" placeholder="email">
+            <input type="submit">
+        </form>
+
+        {% for user in session['users'] %}
+        <p>{{user.name}} - {{user.email}}</p>
+        {% endfor %}
+    </body>
+</html>
