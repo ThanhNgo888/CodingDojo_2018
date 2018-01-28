@@ -3,7 +3,10 @@
        <title>Dojo Survey Index</title>
     </head>
     <body>
-        <h1>Enter Valid Name</h1>
+        <h1>Enter Your Name</h1>
+        {% if error %}
+        <p><strong>Error:</strong> {{ error }}</p>
+        {% endif %}
         {% with messages = get_flashed_messages() %}
           {% if messages %}
             {% for message in messages %}
@@ -11,17 +14,17 @@
             {% endfor %}
           {% endif %}
         {% endwith %}
-      <form action='/process' method='post'>
-          Name:<input type="text" name="name"></br>
-          <select class="" name="Language">
-              <option value="JavaScript">JavaScript</option>
-              <option value="Python">Python</option>
+      <form action ='/process' method='post'>
+          Your Name:<input type="text" name="name"></br>
+           Favorite Language:<select class="" name="language">
+            <option value="JavaScript">JavaScript</option>
+             <option value="Python">Python</option>
           </select></br>
-          <select class="" name="location">
+            Dojo Location:<select class="" name="location">
               <option value="Seattle">Seattle</option>
               <option value="San Jose">San Jose</option>
           </select></br>
-          Comment: </br><textarea name="comment"rows="8"cols="40"></textarea>
+          Comment(optional): </br><textarea name="comment"rows="8"cols="40"></textarea>
           <input type="submit" value="Button">
       </form>
     </body>

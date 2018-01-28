@@ -1,32 +1,18 @@
+<!DOCTYPE html>
 <html>
     <head>
-       <title>Dojo Survey Index</title>
+        <meta charset="utf-8">
+        <title>Result</title>
     </head>
     <body>
-      <form action='/submitForm' method='post'>
-          <ul>
-              <li>
-                  Name:<input type="text" name="">
-              </li>
-              <li>
-                  <select class="" name="Language">
-                      <option value="JavaScript">JavaScript</option>
-                      <option value="Python">Python</option>
-                  </select>
-              </li>
-              <li>
-                  <select class="" name="location">
-                      <option value="Seattle">Seattle</option>
-                      <option value="San Jose">San Jose</option>
-                  </select>
-              </li>
-              <li>
-                  Comment: <textarea name="comment" rows="8" cols="40"></textarea>
-              </li>
-              <li>
-                  <input type="submit" value="Button">
-              </li>
-          </ul>
-      </form>
+        <a href="#">Submitted Info:</a>
+        <p>Name: {{session['name']}}</p>
+        <p>Location: {{session['location']}}</p>
+        <p>Favorite language: {{session['language']}}</p>
+        <p>Comment: {{session['comment']}}</p>
+
+        <form action="/back" method="post">
+            <button type="button" name="button">Go back</button>
+        </form>
     </body>
 </html>
