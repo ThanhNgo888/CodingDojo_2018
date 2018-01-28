@@ -1,15 +1,16 @@
 <html>
     <head>
-       <title>Index Page</title>
+       <title>Counter</title>
     </head>
     <body>
-      <h1>Login Page</h1>
-      <h3>Please login</h3>
-      <!-- read on to learn about form actions, we'll talk about the method in a later section -->
-      <form action='/users' method='post'>
-          Name: <input type='text' name='name'>
-          Email: <input type='text' name='email'>
-          <input type='submit' value='Submit'>
-      </form>
+        <h1>Counter</h1>
+        <h3>You have visited: {{session['count']}} times.</h3>
+        <form action="/ninja" method="post">
+            <p>For ninjas: <input type="submit" name="ninja" value="+2"></p>
+        </form>
+        <form action="/hackers" method="post">
+            <p>For hackers: <input type="submit" name="hackers" value="reset"></p>
+        </form>
+
     </body>
 </html>
