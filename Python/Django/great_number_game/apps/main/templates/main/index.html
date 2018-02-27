@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <title>Great Number Game</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'main/main.css' %}">
+    </head>
+    <body>
+        <center>
+        <h1>Welcome to the Great Number Game!</h1>
+        <h2>I am thinking of a number between 1 and 100</h2>
+        <h3>Take a guess!</h3>
+        <!-- conditonal -->
+        {% if request.session.guessed_number %}
+            {% if request.session.guessed_number > correct_number %}
+                <div class="red">TOO HIGH</div>
+            {% elif request.session.guessed_number < correct_number %}
+                <div class="blue">TOO LOW</div>
+            {% elif request.session.guessed_number == correct_number %}
+                <div class="green">CORRECT!!!</div>
+                    <a href="/reset">Restart?</a>
+            {% endif %}
+        {% endif %}
+        <!-- submit form -->
+        <form action="/process" method = "POST">
+            {% csrf_token %}
+            <input type="text" name="number">
+            <button type="submit">Submit</button>
+        </form>
+    </center>
+    </body>
+</html>
